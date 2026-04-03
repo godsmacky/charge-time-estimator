@@ -22,7 +22,7 @@ function clamp(value: number, min: number, max: number) {
 
 export default function App() {
   const [darkMode, setDarkMode] = useState(() => {
-    return window.matchMedia('(prefers-color-scheme: dark)').matches;
+    return !window.matchMedia('(prefers-color-scheme: light)').matches;
   });
 
   const [inputs, setInputs] = useState<CalcInputs>(() => {
@@ -85,6 +85,19 @@ export default function App() {
       </header>
 
       <main className="app-main">
+        <div className="hero-banner" aria-hidden="true">
+          <div className="speed-lines" />
+          <img
+            src="https://github.com/user-attachments/assets/0eadba25-0620-45a9-9940-7068a976dc09"
+            alt="Xpeng G6 electric vehicle"
+            className="hero-car"
+          />
+          <div className="hero-overlay">
+            <span className="hero-badge">XPENG G6</span>
+            <span className="hero-sub">870 km RANGE · 800V PLATFORM</span>
+          </div>
+        </div>
+
         <form
           className="calc-form"
           onSubmit={(e) => e.preventDefault()}

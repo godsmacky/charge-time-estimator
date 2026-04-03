@@ -21,7 +21,9 @@ function clamp(value: number, min: number, max: number) {
 }
 
 export default function App() {
-  const [darkMode, setDarkMode] = useState(true);
+  const [darkMode, setDarkMode] = useState(() => {
+    return !window.matchMedia('(prefers-color-scheme: light)').matches;
+  });
 
   const [inputs, setInputs] = useState<CalcInputs>(() => {
     const fromUrl = decodeParams(window.location.search);

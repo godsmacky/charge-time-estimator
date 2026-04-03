@@ -483,7 +483,7 @@ body::after {
   background-color: var(--color-surface-2);
   color: var(--color-text);
   font-size: 1rem;
-  font-family: 'Exo 2', inherit;
+  font-family: 'Exo 2', sans-serif;
   font-weight: 500;
   transition: border-color 0.2s, box-shadow 0.2s;
   appearance: textfield;
@@ -525,7 +525,7 @@ body::after {
 }
 
 .soc-bar {
-  height: 10px;
+  height: 14px;
   border-radius: 2px;
   background-color: var(--color-surface-2);
   border: 1px solid var(--color-border);

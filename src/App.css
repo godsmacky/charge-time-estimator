@@ -1,0 +1,473 @@
+/* =====================================================
+   CSS Variables – light & dark themes
+   ===================================================== */
+:root {
+  --color-bg: #f4f6f9;
+  --color-surface: #ffffff;
+  --color-surface-2: #f0f2f5;
+  --color-border: #dde1e9;
+  --color-text: #1a1d23;
+  --color-text-muted: #6b7280;
+  --color-primary: #2563eb;
+  --color-primary-hover: #1d4ed8;
+  --color-primary-light: #eff6ff;
+  --color-accent: #10b981;
+  --color-accent-light: #ecfdf5;
+  --color-error: #ef4444;
+  --color-error-bg: #fef2f2;
+  --color-highlight-bg: #eff6ff;
+  --color-highlight-text: #1e40af;
+  --color-soc-current: #6b7280;
+  --color-soc-target: #2563eb;
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.10);
+  --radius: 12px;
+  --radius-sm: 8px;
+}
+
+[data-theme='dark'] {
+  --color-bg: #0f1117;
+  --color-surface: #1a1d26;
+  --color-surface-2: #252836;
+  --color-border: #2d3148;
+  --color-text: #e8eaf0;
+  --color-text-muted: #8b8fa8;
+  --color-primary: #3b82f6;
+  --color-primary-hover: #2563eb;
+  --color-primary-light: #1e3a5f;
+  --color-accent: #10b981;
+  --color-accent-light: #064e3b;
+  --color-error: #f87171;
+  --color-error-bg: #2d1515;
+  --color-highlight-bg: #1e3a5f;
+  --color-highlight-text: #93c5fd;
+  --color-soc-current: #4b5563;
+  --color-soc-target: #3b82f6;
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* =====================================================
+   Reset / Base
+   ===================================================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
+    sans-serif;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.6;
+  min-height: 100vh;
+  transition: background-color 0.25s, color 0.25s;
+}
+
+/* =====================================================
+   Layout
+   ===================================================== */
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Header */
+.app-header {
+  background-color: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  box-shadow: var(--shadow-sm);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.header-content {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0.875rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.header-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.header-icon {
+  font-size: 1.5rem;
+}
+
+.header-title h1 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-text);
+  letter-spacing: -0.02em;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Main */
+.app-main {
+  flex: 1;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 1.5rem 1.25rem 2rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+/* Footer */
+.app-footer {
+  text-align: center;
+  padding: 1rem 1.25rem;
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  border-top: 1px solid var(--color-border);
+}
+
+/* =====================================================
+   Form sections
+   ===================================================== */
+.calc-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.form-section {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.section-title {
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-text-muted);
+  margin-bottom: 0.25rem;
+}
+
+.form-row {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.form-row.two-col {
+  flex-direction: row;
+  gap: 1rem;
+}
+
+.form-row.two-col .field {
+  flex: 1;
+}
+
+/* =====================================================
+   Form fields
+   ===================================================== */
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.field label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+.field input[type='number'] {
+  width: 100%;
+  padding: 0.6rem 0.875rem;
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background-color: var(--color-surface-2);
+  color: var(--color-text);
+  font-size: 1rem;
+  font-family: inherit;
+  transition: border-color 0.15s, box-shadow 0.15s;
+  appearance: textfield;
+  -moz-appearance: textfield;
+}
+
+.field input[type='number']::-webkit-inner-spin-button,
+.field input[type='number']::-webkit-outer-spin-button {
+  opacity: 1;
+}
+
+.field input[type='number']:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-primary) 20%, transparent);
+}
+
+.field input[aria-invalid='true'] {
+  border-color: var(--color-error);
+}
+
+.field-error {
+  font-size: 0.8rem;
+  color: var(--color-error);
+}
+
+/* =====================================================
+   SOC visual bar
+   ===================================================== */
+.soc-bar-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.soc-bar {
+  height: 16px;
+  border-radius: 8px;
+  background-color: var(--color-surface-2);
+  border: 1px solid var(--color-border);
+  position: relative;
+  overflow: hidden;
+}
+
+.soc-bar-fill {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  transition: width 0.3s ease, left 0.3s ease;
+}
+
+.soc-bar-fill.current {
+  left: 0;
+  background-color: var(--color-soc-current);
+}
+
+.soc-bar-fill.target {
+  background-color: var(--color-soc-target);
+}
+
+.soc-bar-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+}
+
+/* =====================================================
+   Charger presets
+   ===================================================== */
+.presets {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.presets-label {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+}
+
+.presets-buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5rem;
+}
+
+.preset-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0.625rem 0.5rem;
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background-color: var(--color-surface-2);
+  color: var(--color-text);
+  cursor: pointer;
+  font-family: inherit;
+  transition: border-color 0.15s, background-color 0.15s, color 0.15s;
+  gap: 0.15rem;
+}
+
+.preset-btn:hover {
+  border-color: var(--color-primary);
+  background-color: var(--color-primary-light);
+}
+
+.preset-btn.active {
+  border-color: var(--color-primary);
+  background-color: var(--color-primary-light);
+  color: var(--color-primary);
+}
+
+.preset-name {
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.preset-power {
+  font-size: 0.72rem;
+  color: var(--color-text-muted);
+}
+
+.preset-btn.active .preset-power {
+  color: var(--color-primary);
+}
+
+/* =====================================================
+   Results card
+   ===================================================== */
+.results-card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+  box-shadow: var(--shadow-md);
+}
+
+.results-title {
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-text-muted);
+  margin-bottom: 1rem;
+}
+
+.results-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+}
+
+.result-item {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-sm);
+  background-color: var(--color-surface-2);
+  border: 1px solid var(--color-border);
+  transition: background-color 0.15s;
+}
+
+.result-item.highlight {
+  background-color: var(--color-highlight-bg);
+  border-color: var(--color-primary);
+}
+
+.result-icon {
+  font-size: 1.25rem;
+  flex-shrink: 0;
+}
+
+.result-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  flex: 1;
+}
+
+.result-label {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  font-weight: 500;
+}
+
+.result-value {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.result-item.highlight .result-value {
+  color: var(--color-highlight-text);
+}
+
+/* =====================================================
+   Buttons
+   ===================================================== */
+.share-btn,
+.dark-mode-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.45rem 0.875rem;
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background-color: var(--color-surface-2);
+  color: var(--color-text);
+  font-size: 0.875rem;
+  font-family: inherit;
+  font-weight: 500;
+  cursor: pointer;
+  transition: border-color 0.15s, background-color 0.15s;
+  white-space: nowrap;
+}
+
+.share-btn:hover,
+.dark-mode-toggle:hover {
+  border-color: var(--color-primary);
+  background-color: var(--color-primary-light);
+}
+
+.dark-mode-toggle {
+  padding: 0.45rem 0.6rem;
+  font-size: 1rem;
+}
+
+/* =====================================================
+   Error summary
+   ===================================================== */
+.error-summary {
+  background-color: var(--color-error-bg);
+  color: var(--color-error);
+  border: 1px solid var(--color-error);
+  border-radius: var(--radius-sm);
+  padding: 0.75rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+/* =====================================================
+   Responsive – small screens
+   ===================================================== */
+@media (max-width: 480px) {
+  .form-row.two-col {
+    flex-direction: column;
+  }
+
+  .presets-buttons {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .header-title h1 {
+    font-size: 1.05rem;
+  }
+}
